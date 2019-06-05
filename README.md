@@ -1,16 +1,7 @@
 # NSObject-Safe
 
-### Desciption
-* Swizzle commonly used function of Foundation container to prevent nil crash
-* Hook forwardInvocation to catch unrecognized selector exception
-* Assert in Debug and log in Release
-
-### Usage:
-	
-* involve NSObjectSafe.h/NSObjectSafe.m as build phases
-
-### Warn: 
-* Compile NSObjectSafe.m with -fno-objc-arc, otherwise it will cause strange release error: [UIKeyboardLayoutStar release]: message sent to deallocated instance
+### Update 2018.11.20
+* add thread-safe support
 
 ### Update 2018.6.26
 * remove unused swizze for NSDictionary objectForKey:
@@ -23,6 +14,20 @@ NSString
 NSData
     NSConcreteData, NSConcreteMutableData, _NSZeroData, _NSInlineData, __NSCFData
 ```
+
+### Warn: 
+* Compile NSObjectSafe.m with -fno-objc-arc, otherwise it will cause strange release error: [UIKeyboardLayoutStar release]: message sent to deallocated instance
+* Conflict with MultiDelegate
+
+
+### Desciption
+* Swizzle commonly used function of Foundation container to prevent nil crash
+* Hook forwardInvocation to catch unrecognized selector exception
+* Assert in Debug and log in Release
+
+### Usage:
+	
+* involve NSObjectSafe.h/NSObjectSafe.m as build phases
 
 ### unrecognized selector protection
 * NSSafeProxy: unrecognized selector [print:] sent to A
